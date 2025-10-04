@@ -1,4 +1,4 @@
-import { useAIDebugger } from "./hooks/useAIDebugger";
+import { useAIDebugger } from "./hooks/useAiDebugger";
 
 function DebugDemo() {
   const { error, suggestion, debug } = useAIDebugger();

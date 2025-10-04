@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ApiDemo from "./ApiDemo";
-import DebugDemo from "./DebugDemo";
+import ApiDemo from "./components/ApiDemo";
+import DebugDemo from "./components/DebugDemo";
 
 function App() {
   const [tab, setTab] = useState("api");
