@@ -13,6 +13,7 @@ function DebugDemo() {
 
   return (
     <div>
+      <p>Test</p>
       <h2>AI Debugging Demo</h2>
       <button onClick={triggerError}>Trigger Error</button>
 
