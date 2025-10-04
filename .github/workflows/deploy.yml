@@ -3,20 +3,30 @@ name: Deploy Vite React App
 on:
   push:
     branches:
-      - master
+      - master # or main, depending on your repo name
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      # Step 1: Checkout source code
+      - uses: actions/checkout@v4
+
+      # Step 2: Use supported Node.js version (20.19 or 22.12)
+      - uses: actions/setup-node@v4
         with:
-          node-version: 21
-      - run: npm install
+          node-version: 20.19.0
+
+      # Step 3: Install dependencies
+      - run: npm ci
+
+      # Step 4: Build the Vite app
       - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
+
+      # Step 5: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
